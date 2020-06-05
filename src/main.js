@@ -1,8 +1,9 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './App'
 import router from './router'
 import Firebase from 'firebase'
-import { firebaseConfig } from 'config/firebaseConfig.js'
+import { firebaseConfig } from './config/firebaseConfig.js'
+
 // Inicializador de Firebase
 Firebase.initializeApp(firebaseConfig);
 Firebase.analytics();
