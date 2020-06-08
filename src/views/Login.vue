@@ -12,8 +12,10 @@
         v-model="pass">
       <button @click="loginUser">Entrar</button>
     </div>
-    <a @click="resetPass" href="#">Recuperar Contraseña</a> | 
-    <router-link to='/registro'></router-link>
+    <div>
+      <a @click="resetPass" href="#">Recuperar Contraseña</a> | 
+      <router-link to='/singin'>Registrarme</router-link>
+    </div>
   </div>
 </template>
 
@@ -36,7 +38,7 @@ export default {
           (datos) => {
             console.log(datos);
             console.log(datos.user);
-            this.$router.push('./')
+            this.$router.push('./home')
           }
         ).catch(
           err => {

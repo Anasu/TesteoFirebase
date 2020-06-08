@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Inicio</router-link> | 
+      <router-link to="/home">Inicio</router-link> | 
       <router-link to="/login">Login</router-link> | 
       <router-link to="/singin">Registro</router-link> | 
     </div>
