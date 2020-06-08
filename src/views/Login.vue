@@ -11,8 +11,9 @@
         placeholder="Ingrese la contraseña"
         v-model="pass">
       <button @click="loginUser">Entrar</button>
-      <button @click="resetPass">Recuperar Contraseña</button>
     </div>
+    <a @click="resetPass" href="#">Recuperar Contraseña</a> | 
+    <router-link to='/registro'></router-link>
   </div>
 </template>
 
