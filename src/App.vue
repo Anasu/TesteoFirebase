@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/">Inicio</router-link> | 
       <router-link to="/login">Login</router-link> | 
+      <router-link to="/singin">Registro</router-link> | 
     </div>
     <router-view/>
   </div>

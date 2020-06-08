@@ -15,6 +15,10 @@ Vue.use(VueRouter)
     name: 'Login',
     component: () => import('../views/About.vue')
   },
+  {
+    path: '/singin',
+    name: 'SingIn',
+    component: () => import('../views/Registro.vue')
   }
 ]
 
