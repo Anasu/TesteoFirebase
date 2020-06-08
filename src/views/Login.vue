@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="login">
     <h1>Aquí testearé el login</h1>
     <div class="formulario">
       <input 
@@ -11,6 +11,7 @@
         placeholder="Ingrese la contraseña"
         v-model="pass">
       <button @click="loginUser">Entrar</button>
+      <button @click="resetPass">Recuperar Contraseña</button>
     </div>
   </div>
 </template>
@@ -19,7 +20,7 @@
 import Firebase from 'firebase'
 
 export default {
-  name: 'about',
+  name: 'Login',
   data() {
     return {
       mail: null,
@@ -27,7 +28,7 @@ export default {
     }
   },
   methods: {
-    loginUser () {
+    loginUser() {
       Firebase.auth().signInWithEmailAndPassword(
         this.mail, this.pass
         ).then(
@@ -41,14 +42,27 @@ export default {
             console.log(err)
           }
         )
-    }
+    },
+    resetPass() {
+      Firebase.auth().sendPasswordResetEmail(
+        this.mail
+        ).then(
+          function() {
+            console.log("enviado")
+          }
+        ).catch(
+          function(error) {
+            console.error(error);
+          }
+        );
+    } 
   }
 
 }
 </script>
 
 <style lang="scss" scoped>
-.about {
+.login {
   display: flex;
   flex-direction: column;
   align-items: center;
