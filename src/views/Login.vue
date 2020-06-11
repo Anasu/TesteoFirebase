@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="login">
     <h1>Aquí testearé el login</h1>
     <div class="formulario">
       <input 
@@ -12,6 +12,10 @@
         v-model="pass">
       <button @click="loginUser">Entrar</button>
     </div>
+    <div>
+      <a @click="resetPass" href="#">Recuperar Contraseña</a> | 
+      <router-link to='/singin'>Registrarme</router-link>
+    </div>
   </div>
 </template>
 
@@ -19,7 +23,7 @@
 import Firebase from 'firebase'
 
 export default {
-  name: 'about',
+  name: 'Login',
   data() {
     return {
       mail: null,
@@ -27,28 +31,41 @@ export default {
     }
   },
   methods: {
-    loginUser () {
+    loginUser() {
       Firebase.auth().signInWithEmailAndPassword(
         this.mail, this.pass
         ).then(
           (datos) => {
             console.log(datos);
             console.log(datos.user);
-            this.$router.push('./')
+            this.$router.push('./home')
           }
         ).catch(
           err => {
             console.log(err)
           }
         )
-    }
+    },
+    resetPass() {
+      Firebase.auth().sendPasswordResetEmail(
+        this.mail
+        ).then(
+          function() {
+            console.log("enviado")
+          }
+        ).catch(
+          function(error) {
+            console.error(error);
+          }
+        );
+    } 
   }
 
 }
 </script>
 
 <style lang="scss" scoped>
-.about {
+.login {
   display: flex;
   flex-direction: column;
   align-items: center;
